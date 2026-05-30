@@ -1087,3 +1087,7 @@ body::before{
     font-size:.7rem;
     opacity:.45;
 }
+
+.form-success{
+	padding: 20px;
+}
