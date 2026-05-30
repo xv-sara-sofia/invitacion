@@ -1,0 +1,9 @@
+Copyright (c) 2026 Sara Sofia
+
+Todos los derechos reservados.
+
+Este software y su código fuente son propiedad exclusiva del autor.
+
+No se concede permiso para copiar, modificar, distribuir, sublicenciar, vender o reutilizar este código total o parcialmente sin autorización expresa y por escrito del propietario.
+
+El uso no autorizado de este software constituye una violación de los derechos de autor.
