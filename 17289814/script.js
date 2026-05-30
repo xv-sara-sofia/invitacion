@@ -219,7 +219,7 @@ setInterval(createPetal, 350);
         .then(() => {
             // Ocultar botones y mostrar mensaje de éxito directamente en la sección
             rsvpButtonsContainer.classList.add('is-hidden');
-            responseMessage.innerText = `¡Gracias por tu respuesta! Sara Sofía te espera.`;
+            responseMessage.innerText = `¡Gracias por tu respuesta!`;
             responseMessage.classList.remove('is-hidden');
         })
         .catch(err => {
@@ -229,12 +229,12 @@ setInterval(createPetal, 350);
             btnNo.disabled = false;
             btnNo.innerText = 'No podré asistir';
             btnYes.disabled = false;
-            btnYes.innerText = 'Si, allí estaré';
+            btnYes.innerText = 'Seguro, allí estaré';
         });
     };
 
     // Eventos de clic
     btnNo.addEventListener('click', () => enviarRSVP('No podré asistir'));
-    btnYes.addEventListener('click', () => enviarRSVP('Si, allí estaré'));
+    btnYes.addEventListener('click', () => enviarRSVP('Seguro, allí estaré'));
 });
 
