@@ -26,6 +26,13 @@ section {
         background-attachment: scroll;
         background-position: center center;
         background-size: cover;
+        background-image:url('../87153632/back15Fondo-mobile.webp');
+    }
+}
+
+@media (max-width: 768px) {
+    .welcome-bg {
+        background-image:url('../87153632/back15Fondo-mobile.webp');
     }
 }
 
@@ -104,7 +111,7 @@ body::before {
 .hero {
     min-height: 100vh;
     min-height: 100svh;
-    background-image: url('../87153632/back15Fondo.png');
+    background-image: url('../87153632/back15Fondo-desktop.webp');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -377,7 +384,7 @@ body::before {
     position: absolute;
     inset: 0;
 
-    background-image: url('../87153632/back15Fondo.png');
+    background-image: url('../87153632/back15Fondo-desktop.webp');
 
     background-size: cover;
     background-position: center;
@@ -674,7 +681,7 @@ body::before {
     width: 32px;
     height: 32px;
 
-    background-image: url('../87153632/petal.png');
+    background-image: url('../87153632/petal.webp');
     background-size: contain;
     background-repeat: no-repeat;
 
@@ -813,7 +820,7 @@ body::before {
             rgba(0, 0, 0, .45),
             rgba(0, 0, 0, .45)
     ),
-    url('../87153632/back15Fondo.png');
+    url('../87153632/back15Fondo-desktop.webp');
 
     background-size: cover;
     background-position: center;
