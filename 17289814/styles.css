@@ -36,17 +36,17 @@ section {
     }
 }
 
-@media (max-width: 768px) {
-    .scroll-indicator {
-        bottom: 70px;
-    }
-}
-
 @media(max-width:768px){
     .photo-card img{
         width:100%;
         max-width:280px;
         height:auto;
+    }
+}
+
+@media (hover:none){
+    .photo-card:hover{
+        transform:none;
     }
 }
 
@@ -95,8 +95,7 @@ body::before {
 }
 
 .section {
-    min-height: 100vh;
-    min-height: 100svh;
+    min-height: 100dvh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -109,11 +108,11 @@ body::before {
 }
 
 .hero {
-    min-height: 100vh;
-    min-height: 100svh;
+    min-height: 100dvh;
     background-image: url('../87153632/back15Fondo-desktop.webp');
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     background-attachment: fixed;
     color: white;
     position: relative;
@@ -240,7 +239,7 @@ body::before {
     width: 260px;
     background: rgba(255, 255, 255, .92);
 
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(6px);
 
     border: 1px solid rgba(255, 255, 255, .4);
 
@@ -325,6 +324,7 @@ body::before {
     opacity: 0;
     transform: translateY(30px);
     transition: 1s ease;
+    will-change: transform, opacity;
 }
 
 .fade-in.visible {
@@ -746,7 +746,7 @@ body::before {
 
 .scroll-indicator {
     position: absolute;
-    bottom: 40px;
+    bottom: max(20px, env(safe-area-inset-bottom));
     left: 50%;
     transform: translateX(-50%);
     z-index: 50;
@@ -824,6 +824,7 @@ body::before {
 
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
@@ -871,7 +872,7 @@ body::before {
 
     background: rgba(255, 255, 255, .92);
 
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(6px);
 
     border: 1px solid rgba(255, 255, 255, .45);
 
@@ -975,7 +976,7 @@ body::before {
 
     box-shadow: 0 8px 25px rgba(0, 0, 0, .05);
 
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(6px);
 }
 
 .guest-badge i {
@@ -1056,9 +1057,8 @@ body::before {
     }
 
     .rsvp-buttons .gold-btn {
-
-        min-width: 100%;
-
+        width:100%;
+        max-width:340px;
         height: 56px;
     }
 }
