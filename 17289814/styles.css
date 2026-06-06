@@ -20,44 +20,83 @@ section {
     position: relative;
 }
 
+.global-fixed-background {
+    position: fixed;
+    inset: 0;
+    z-index: -10;
+    background-image: url("../87153632/back15Fondo-desktop.webp");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+.global-fixed-background::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, .18);
+}
+
+.hero,
+.gallery-section,
+.details-section {
+    background: transparent;
+}
+
+.quote-section,
+.countdown-section,
+.rsvp-section {
+    background: rgba(255, 255, 255, .88);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
 @media (max-width: 768px) {
-    .hero,
-    .image-section {
-        background-attachment: scroll;
+    .global-fixed-background {
+        background-image: url("../87153632/back15Fondo-mobile.webp");
         background-position: center center;
-        background-size: cover;
-        background-image:url('../87153632/back15Fondo-mobile.webp');
     }
 }
 
 @media (max-width: 768px) {
     .welcome-bg {
-        background-image:url('../87153632/back15Fondo-mobile.webp');
+        background-image: url('../87153632/back15Fondo-mobile.webp');
     }
 }
 
-@media(max-width:768px){
-    .photo-card img{
-        width:100%;
-        max-width:280px;
-        height:auto;
+@media (max-width: 768px) {
+    .photo-card img {
+        width: 100%;
+        max-width: 280px;
+        height: auto;
     }
 }
 
-@media (hover:none){
-    .photo-card:hover{
-        transform:none;
+@media (hover: none) {
+    .photo-card:hover {
+        transform: none;
     }
 }
 
-@media(max-width:768px){
-    .rsvp-buttons{
-        flex-direction:column;
-        align-items:center;
+@media (max-width: 768px) {
+    .rsvp-buttons {
+        flex-direction: column;
+        align-items: center;
     }
-    .rsvp-buttons .gold-btn{
-        width:90%;
-        max-width:320px;
+
+    .rsvp-buttons .gold-btn {
+        width: 90%;
+        max-width: 320px;
+    }
+}
+
+@media (max-width: 768px) {
+    .petal {
+        width: 22px;
+        height: 22px;
     }
 }
 
@@ -109,14 +148,10 @@ body::before {
 
 .hero {
     min-height: 100dvh;
-    background-image: url('../87153632/back15Fondo-desktop.webp');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
     color: white;
     position: relative;
     overflow: hidden;
+    background: transparent;
 }
 
 .hero-overlay {
@@ -238,16 +273,10 @@ body::before {
     padding: 40px 30px;
     width: 260px;
     background: rgba(255, 255, 255, .92);
-
     backdrop-filter: blur(6px);
-
     border: 1px solid rgba(255, 255, 255, .4);
-
     box-shadow: 0 10px 30px rgba(0, 0, 0, .12);
-
     border-radius: 24px;
-
-    transition: .4s ease;
 }
 
 .detail-card:hover,
@@ -380,16 +409,19 @@ body::before {
 /* FONDO */
 
 .welcome-bg {
-
     position: absolute;
     inset: 0;
-
     background-image: url('../87153632/back15Fondo-desktop.webp');
-
     background-size: cover;
     background-position: center;
+    transform: scale(1.03);
+}
 
-    filter: blur(2px) brightness(1.08);
+.welcome-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, .28);
 }
 
 /* CAPA ROSADA */
@@ -746,15 +778,10 @@ body::before {
 
 .scroll-indicator {
     position: absolute;
-    bottom: max(20px, env(safe-area-inset-bottom));
     left: 50%;
     transform: translateX(-50%);
+    bottom: max(25px, env(safe-area-inset-bottom));
     z-index: 50;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: white;
-    animation: bounceScroll 2s infinite;
 }
 
 /* TEXTO */
@@ -815,17 +842,7 @@ body::before {
 
 .image-section {
     position: relative;
-
-    background-image: linear-gradient(
-            rgba(0, 0, 0, .45),
-            rgba(0, 0, 0, .45)
-    ),
-    url('../87153632/back15Fondo-desktop.webp');
-
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background: transparent;
 }
 
 /* CAPA OSCURA/ROSA */
@@ -907,38 +924,25 @@ body::before {
 ========================================================= */
 
 .rsvp-section {
-    position: relative;
-    overflow: hidden;
-    padding: 20px;
+    padding-bottom: 20px;
 }
 
 .rsvp-content {
-
     position: relative;
-
     max-width: 760px;
-
     margin: 0 auto;
-
-    padding: 20px 20px 10px;
+    padding: 0 12px;
 }
 
 /* NOMBRE */
 
 .rsvp-guest-name {
-
     font-family: var(--font-serif);
-
     font-size: clamp(2rem, 4vw, 3rem);
-
     font-style: italic;
-
     color: #4f4a4a;
-
     line-height: 1.3;
-
-    margin-top: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 }
 
 /* MENSAJE */
@@ -1026,55 +1030,49 @@ body::before {
 /* RESPONSIVE */
 
 @media (max-width: 768px) {
-
     .rsvp-content {
-
-        padding: 10px 12px;
+        padding: 0 12px;
     }
-
     .rsvp-guest-name {
-
         font-size: 2rem;
-
         margin-bottom: 18px;
     }
-
     .rsvp-message {
-
         font-size: 1.4rem;
-
         line-height: 1.6;
     }
-
     .guest-badge {
-
         padding: 12px 20px;
     }
-
     .guest-badge span {
-
         font-size: .9rem;
     }
-
     .rsvp-buttons .gold-btn {
-        width:100%;
-        max-width:340px;
+        width: 100%;
+        max-width: 340px;
         height: 56px;
     }
 }
 
-.signature-footer {
-    text-align: center;
-    font-family: var(--font-serif);
-    color: var(--dusty-rose);
-    font-size: 1.1rem;
+.footer-section{
+    background: rgba(255,255,255,.88);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    text-align:center;
+    padding:0;
+    margin:0;
 }
 
-.legal-footer {
-    text-align: center;
-    margin-top: 8px;
-    font-size: .7rem;
-    opacity: .45;
+.signature-footer{
+    font-family:var(--font-serif);
+    font-size:.5rem;
+    color:var(--dusty-rose);
+}
+
+.legal-footer{
+    margin-top:4px;
+    font-size:.4rem;
+    color:rgba(74,74,74,.6);
 }
 
 .form-success {
