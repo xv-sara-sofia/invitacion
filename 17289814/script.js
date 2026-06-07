@@ -75,64 +75,39 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ======================================================
        OCULTAR FLECHA AL HACER SCROLL
     ====================================================== */
-
     const scrollIndicator = document.getElementById('scroll-indicator');
-
     window.addEventListener('scroll', () => {
-
         if (window.scrollY > 80) {
-
             scrollIndicator.classList.add('hide');
-
         } else {
-
             scrollIndicator.classList.remove('hide');
         }
-
     });
 
 
     /* ======================================================
        PETALOS
     ====================================================== */
-
     const petalsContainer = document.querySelector('.petals-container');
-
     function createPetal() {
-
         const petal = document.createElement('div');
-
         petal.classList.add('petal');
-
         petal.style.left = Math.random() * window.innerWidth + 'px';
-
         petal.style.animationDuration = (7 + Math.random() * 6) + 's';
-
         petal.style.opacity = 0.4 + Math.random();
-
         petal.style.transform = `scale(${0.5 + Math.random()})`;
-
         petal.style.rotate = Math.random() * 360 + 'deg';
-
         const size = 18 + Math.random() * 24;
-
         petal.style.width = size + 'px';
         petal.style.height = size + 'px';
-
         petalsContainer.appendChild(petal);
-
         setTimeout(() => {
-
             petal.remove();
-
         }, 14000);
-
     }
 
     const petalRate = window.innerWidth < 768 ? 700 : 350;
     setInterval(createPetal, petalRate);
-
-    // --- Lógica RSVP con URL y Botones Directos (Nueva) ---
 
     // Obtener parámetros de la URL	
     const urlParams = new URLSearchParams(window.location.search);
@@ -159,7 +134,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-
     const guestText = document.getElementById('rsvp-guest-text');
     const guestBadge = document.getElementById('guest-badge');
     const guestCountText = document.getElementById('guest-count-text');
@@ -179,6 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnNo = document.getElementById('rsvp-no');
     const btnYes = document.getElementById('rsvp-yes');
     const responseMessage = document.getElementById('rsvp-response-message');
+    const sendingOverlay = document.getElementById('sending-overlay');
     const rsvpButtonsContainer = document.querySelector('.rsvp-buttons');
 
     // Endpoint Local o Apps Script (Actualízalo cuando desployes el backend)
@@ -186,9 +161,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const enviarRSVP = async (asistencia) => {
         // Deshabilitar botones
-        rsvpButtonsContainer.classList.add('is-hidden');
-        responseMessage.innerText = '¡Gracias por confirmar tu respuesta!';
-        responseMessage.classList.remove('is-hidden');
+        btnNo.disabled = true;
+        btnYes.disabled = true;
+        sendingOverlay.classList.remove('is-hidden');
 
         // Datos a enviar
         const data = {
@@ -200,13 +175,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             await fetch(SCRIPT_URL, {
-                method:'POST',
-                mode:'no-cors',
-                body:JSON.stringify(data)
+                method: 'POST',
+                mode: 'no-cors',
+                body: JSON.stringify(data)
             });
+            rsvpButtonsContainer.classList.add('is-hidden');
+            responseMessage.innerText = '¡Gracias por confirmar tu respuesta!';
+            responseMessage.classList.remove('is-hidden');
         } catch (err) {
             console.error(err);
+            // Habilitar botones
+            btnNo.disabled = false;
+            btnYes.disabled = false;
         }
+        sendingOverlay.classList.add('is-hidden');
     };
 
     // Eventos de clic

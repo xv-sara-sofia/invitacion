@@ -21,271 +21,184 @@
 <div class="global-fixed-background"></div>
 <!-- PANTALLA DE BIENVENIDA -->
 <div id="welcome-overlay">
-
     <!-- FONDO -->
     <div class="welcome-bg"></div>
-
     <!-- BRILLOS -->
     <div class="magic-particles"></div>
-
     <!-- CONTENIDO -->
     <div class="welcome-content">
-
         <div class="welcome-elements">
-
             <p class="open-instruction">
                 HAZ CLIC PARA ABRIR
             </p>
-
             <div class="arrow-down">
                 <i class="fas fa-chevron-down"></i>
             </div>
-
             <!-- SOBRE PNG -->
             <div class="envelope-image-wrapper"
                  id="envelope-trigger">
-
                 <img
                         src="87153632/sobre.webp"
                         alt="Sobre 15"
                         class="envelope-image">
-
             </div>
-
             <p class="music-tip">
                 <i class="fas fa-music"></i>
                 ACTIVA EL SONIDO PARA UNA MEJOR EXPERIENCIA
             </p>
-
         </div>
-
     </div>
-
 </div>
-
 <audio id="bg-music" loop>
     <source src="17289814/musica.mp3" type="audio/mpeg">
 </audio>
-
 <button id="music-control" class="music-btn is-hidden">
     <i class="fas fa-music"></i>
 </button>
-
 <main id="main-content" class="is-hidden">
-
     <!-- PETALOS -->
     <div class="petals-container"></div>
-
     <section class="section hero">
-
         <div class="hero-overlay"></div>
-
         <div class="hero-body fade-in">
-
             <div class="hero-crown">
                 <i class="fas fa-crown"></i>
             </div>
-
             <p class="caps-detail">
                 Estás invitado a celebrar mis
             </p>
-
             <h1 class="main-title">
                 15 Años
             </h1>
-
             <h1 class="main-title">
                 Sara Sofia
             </h1>
-
             <p class="date-detail">
                 29 de agosto de 2026
             </p>
-
         </div>
-
         <!-- SCROLL INDICATOR -->
         <div class="scroll-indicator" id="scroll-indicator">
             <span>Desliza</span>
-
             <div class="scroll-arrow">
                 <i class="fas fa-chevron-down"></i>
             </div>
         </div>
-
     </section>
-
     <section class="section quote-section">
         <div class="container fade-in">
-
             <i class="fas fa-quote-left ornament"></i>
-
             <p class="quote-text">"Hace 15 años, una estrella iluminó nuestra vida. Hoy, esa estrella brilla con luz
                 propia. Queremos que seas parte de la noche donde sus sueños se vuelven realidad."</p>
-
             <div class="divider"></div>
-
         </div>
     </section>
-
     <section class="section gallery-section image-section">
-
         <div class="container fade-in">
-
             <h2 class="section-title title-font">
                 Momentos
             </h2>
-
             <div class="photo-spread">
-
                 <div class="photo-card p1">
                     <img src="87153632/momento1.webp">
                 </div>
-
                 <div class="photo-card p2">
                     <img src="87153632/momento2.webp">
                 </div>
-
                 <div class="photo-card p3">
                     <img src="87153632/momento3.webp">
                 </div>
-
             </div>
-
         </div>
-
     </section>
-
     <section class="section countdown-section">
-
         <div class="container fade-in">
-
             <h2 class="section-title title-font">
                 Falta Muy Poco
             </h2>
-
             <div class="countdown-grid">
-
                 <div class="time-box glass-card">
                     <span id="days">00</span>
                     <p>Días</p>
                 </div>
-
                 <div class="time-box glass-card">
                     <span id="hours">00</span>
                     <p>Horas</p>
                 </div>
-
                 <div class="time-box glass-card">
                     <span id="minutes">00</span>
                     <p>Minutos</p>
                 </div>
-
             </div>
-
         </div>
-
     </section>
-
     <section class="section details-section image-section">
-
         <div class="container fade-in">
-
             <h2 class="section-title title-font">
                 Detalles
             </h2>
-
             <div class="details-grid">
-
                 <div class="detail-card glass-card">
                     <i class="fas fa-calendar-days"></i>
                     <h3>Fecha</h3>
                     <p>29 de agosto de 2026</p>
                 </div>
-
                 <div class="detail-card glass-card">
                     <i class="fas fa-clock"></i>
                     <h3>Hora</h3>
                     <p>7:00 PM</p>
                 </div>
-
                 <div class="detail-card glass-card">
                     <i class="fas fa-location-dot"></i>
                     <h3>Lugar</h3>
                     <p>Villa Floresta</p>
-
                     <a href="https://maps.app.goo.gl/2n3VbY4uEHQFLDAa6"
                        target="_blank"
                        class="map-link">
                         Ver ubicación
                     </a>
                 </div>
-
                 <div class="detail-card glass-card">
-
                     <i class="fas fa-gift"></i>
-
                     <h3>Lluvia de sobres</h3>
-
                     <p>
                         Tu presencia es mi mejor regalo,
                         pero si deseas tener un detalle,
                         agradeceré tu cariño en lluvia de sobres.
                     </p>
-
                 </div>
-
             </div>
-
         </div>
-
     </section>
-
     <section class="section rsvp-section">
-
         <div class="container fade-in">
-
             <h2 class="section-title title-font">
                 Confirma tu Asistencia
             </h2>
-
             <div class="rsvp-content">
-
-
                 <p id="rsvp-guest-text" class="rsvp-guest-name">
                 </p>
-
                 <p class="rsvp-message">
                     Sara Sofia te espera.
                     <br>
                     ¿Contamos contigo?
                 </p>
-
                 <div id="guest-badge" class="guest-badge is-hidden">
-
                     <i class="fas fa-user-group"></i>
-
                     <span id="guest-count-text"></span>
-
                 </div>
-
                 <div class="rsvp-buttons">
-
                     <button id="rsvp-no"
                             class="gold-btn rsvp-no-btn">
                         No podré asistir
                     </button>
-
                     <button id="rsvp-yes"
                             class="gold-btn rsvp-yes-btn pulse">
                         Seguro, allí estaré
                     </button>
-
                 </div>
-
                 <p id="rsvp-response-message"
                    class="is-hidden form-success"></p>
-
             </div>
         </div>
     </section>
@@ -298,8 +211,14 @@
         </div>
     </div>
 </main>
-
+<div id="sending-overlay" class="sending-overlay is-hidden">
+    <div class="sending-box">
+        <div class="sending-spinner"></div>
+        <p>
+            Registrando tu respuesta...
+        </p>
+    </div>
+</div>
 <script src="17289814/script.js"></script>
-
 </body>
 </html>

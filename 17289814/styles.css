@@ -5,7 +5,6 @@
     --cream: #fff9f9;
     --white: #ffffff;
     --text: #4a4a4a;
-
     --font-serif: 'Playfair Display', serif;
     --font-script: 'Great Vibes', cursive;
     --font-sans: 'Montserrat', sans-serif;
@@ -86,7 +85,6 @@ section {
         flex-direction: column;
         align-items: center;
     }
-
     .rsvp-buttons .gold-btn {
         width: 90%;
         max-width: 320px;
@@ -121,14 +119,12 @@ body::before {
     content: "";
     position: fixed;
     inset: 0;
-
     background: radial-gradient(circle at top left,
     rgba(255, 255, 255, .3),
     transparent 30%),
     radial-gradient(circle at bottom right,
             rgba(197, 160, 89, .15),
             transparent 40%);
-
     pointer-events: none;
     z-index: -1;
 }
@@ -157,7 +153,6 @@ body::before {
 .hero-overlay {
     position: absolute;
     inset: 0;
-
     background: radial-gradient(circle at top,
     rgba(255, 255, 255, .15),
     transparent 40%),
@@ -370,39 +365,29 @@ body::before {
 ========================================================= */
 
 .welcome-elements {
-
     display: flex;
     flex-direction: column;
     align-items: center;
-
     transition: opacity 1.2s ease,
     transform 1.2s ease,
     filter 1.2s ease;
 }
 
 .welcome-elements.hide {
-
     opacity: 0;
-
     transform: scale(1.08) translateY(-20px);
-
     filter: blur(8px);
 }
 
 #welcome-overlay {
     position: fixed;
     inset: 0;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     overflow: hidden;
-
     z-index: 9999;
-
     background: #f8e9e7;
-
     transition: opacity 1.6s ease;
 }
 
@@ -427,12 +412,9 @@ body::before {
 /* CAPA ROSADA */
 
 #welcome-overlay::before {
-
     content: "";
-
     position: absolute;
     inset: 0;
-
     background: radial-gradient(circle at top,
     rgba(255, 255, 255, .55),
     transparent 35%),
@@ -446,10 +428,8 @@ body::before {
 /* CONTENIDO */
 
 .welcome-content {
-
     position: relative;
     z-index: 5;
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -458,38 +438,25 @@ body::before {
 /* TEXTO SUPERIOR */
 
 .open-instruction {
-
     letter-spacing: 8px;
-
     color: white;
-
     font-size: .95rem;
-
     margin-bottom: 10px;
     font-weight: 900;
-
-
     text-shadow: 0 0 12px rgba(255, 215, 120, .8), 0 0 30px rgba(255, 215, 120, .5);
 }
 
 .arrow-down {
-
     color: white;
-
     margin-bottom: 35px;
-
-
     text-shadow: 0 0 12px rgba(255, 215, 120, .8), 0 0 30px rgba(255, 215, 120, .5);
-
     animation: arrowFloat 2s ease-in-out infinite;
 }
 
 @keyframes arrowFloat {
-
     0%, 100% {
         transform: translateY(0px);
     }
-
     50% {
         transform: translateY(6px);
     }
@@ -498,14 +465,10 @@ body::before {
 /* SOBRE */
 
 .envelope {
-
     position: relative;
-
     width: 650px;
     height: 330px;
-
     cursor: pointer;
-
     z-index: 3;
 }
 
@@ -527,154 +490,106 @@ body::before {
 
 .magic-particles::before,
 .magic-particles::after {
-
     content: "";
-
     position: absolute;
     inset: 0;
-
     background-image: radial-gradient(rgba(255, 255, 255, .9) 1px, transparent 1px);
-
     background-size: 140px 140px;
-
     opacity: .4;
-
     animation: sparkleMove 20s linear infinite;
 }
 
 .magic-particles::after {
-
     background-size: 220px 220px;
-
     opacity: .2;
-
     animation-duration: 35s;
 }
 
 @keyframes sparkleMove {
-
     from {
         transform: translateY(0px);
     }
-
     to {
         transform: translateY(-120px);
     }
 }
 
 /* RESPONSIVE */
-
 @media (max-width: 768px) {
-
     .envelope {
-
         width: 95%;
         height: 230px;
     }
-
     .open-instruction {
-
         letter-spacing: 4px;
         font-size: .8rem;
-
     }
-
 }
 
 /* =========================================================
    SOBRE PNG REAL
 ========================================================= */
-
 .envelope-image-wrapper {
-
     position: relative;
-
     width: min(700px, 90vw);
-
     cursor: pointer;
-
     z-index: 10;
-
     transition: transform 1.2s ease,
     opacity 1s ease,
     filter 1s ease;
-
     animation: floatEnvelope 5s ease-in-out infinite;
 }
 
 .envelope-image {
-
     width: 100%;
     display: block;
-
     user-select: none;
     pointer-events: none;
-
     filter: drop-shadow(0 30px 40px rgba(0, 0, 0, .18)) drop-shadow(0 0 25px rgba(255, 215, 180, .35));
 }
 
 /* HOVER */
-
 .envelope-image-wrapper:hover {
-
     transform: scale(1.03);
 }
 
 /* APERTURA */
-
 .envelope-image-wrapper.opened {
-
     transform: scale(1.15) translateY(-30px);
-
     opacity: 0;
-
     filter: blur(8px);
 }
 
 /* FLOTACIÓN */
-
 @keyframes floatEnvelope {
-
     0%, 100% {
         transform: translateY(0px);
     }
-
     50% {
         transform: translateY(-14px);
     }
 }
 
 /* MAIN */
-
 #main-content {
-
     opacity: 0;
-
     transition: opacity 1.8s ease;
 }
 
 #main-content.show-content {
-
     opacity: 1;
 }
 
 /* RESPONSIVE */
-
 @media (max-width: 768px) {
-
     .envelope-image-wrapper {
-
         width: 95vw;
     }
-
     .open-instruction {
-
         font-size: .8rem;
         letter-spacing: 4px;
     }
-
     .music-tip {
-
         font-size: .75rem;
         text-align: center;
         padding: 0 20px;
@@ -684,63 +599,43 @@ body::before {
 /* =========================================================
    PETALOS CAYENDO
 ========================================================= */
-
 #main-content {
-
     position: relative;
     overflow: hidden;
 }
 
 .petals-container {
-
     position: fixed;
-
     inset: 0;
-
     pointer-events: none;
-
     overflow: hidden;
-
     z-index: 20;
 }
 
 
 .petal {
     position: fixed;
-
     top: -50px;
-
     width: 32px;
     height: 32px;
-
     background-image: url('../87153632/petal.webp');
     background-size: contain;
     background-repeat: no-repeat;
-
     pointer-events: none;
-
     z-index: 15;
-
     animation: petalFall linear forwards;
 }
 
 @keyframes petalFall {
-
     0% {
-
         transform: translateY(-80px) translateX(0) rotate(0deg);
-
         opacity: 0;
     }
-
     10% {
         opacity: .95;
     }
-
     100% {
-
         transform: translateY(120vh) translateX(120px) rotate(360deg);
-
         opacity: .15;
     }
 }
@@ -748,25 +643,17 @@ body::before {
 /* =========================================================
    CORONA
 ========================================================= */
-
 .hero-crown {
-
     margin-bottom: 25px;
-
     font-size: 3.5rem;
-
-
     text-shadow: 0 0 12px rgba(255, 215, 120, .8), 0 0 30px rgba(255, 215, 120, .5);
-
     animation: crownFloat 3s ease-in-out infinite;
 }
 
 @keyframes crownFloat {
-
     0%, 100% {
         transform: translateY(0px);
     }
-
     50% {
         transform: translateY(-8px);
     }
@@ -775,7 +662,6 @@ body::before {
 /* =========================================================
    SCROLL INDICATOR
 ========================================================= */
-
 .scroll-indicator {
     position: absolute;
     left: 50%;
@@ -787,40 +673,26 @@ body::before {
 /* TEXTO */
 
 .scroll-indicator span {
-
     font-size: .72rem;
-
     letter-spacing: 5px;
-
     text-transform: uppercase;
-
     font-weight: 600;
-
-
     text-shadow: 0 0 12px rgba(255, 215, 120, .8), 0 0 30px rgba(255, 215, 120, .5);
 }
 
 /* FLECHA */
-
 .scroll-arrow {
-
     font-size: 1.4rem;
-
     animation: scrollBounce 1.8s ease-in-out infinite;
-
-
     text-shadow: 0 0 12px rgba(255, 215, 120, .8), 0 0 30px rgba(255, 215, 120, .5);
 }
 
 /* ANIMACION */
-
 @keyframes scrollBounce {
-
     0%, 100% {
         transform: translateY(0);
         opacity: .9;
     }
-
     50% {
         transform: translateY(10px);
         opacity: 1;
@@ -828,93 +700,70 @@ body::before {
 }
 
 /* OCULTAR */
-
 .scroll-indicator.hide {
-
     opacity: 0;
-
     transform: translateX(-50%) translateY(20px);
 }
 
 /* =========================================================
    SECCIONES CON FOTO DE FONDO
 ========================================================= */
-
 .image-section {
     position: relative;
     background: transparent;
 }
 
 /* CAPA OSCURA/ROSA */
-
 .image-section::before {
-
     content: "";
-
     position: absolute;
     inset: 0;
-
     background: linear-gradient(
             to bottom,
             rgba(0, 0, 0, .45),
             rgba(192, 138, 138, .45)
     );
-
     z-index: 1;
 }
 
 /* CONTENIDO ENCIMA */
-
 .image-section > * {
-
     position: relative;
     z-index: 2;
 }
 
 /* TEXTO CLARO */
-
 .image-section .section-title,
 .image-section p,
 .image-section h2,
 .image-section h3 {
-
     color: white;
 }
 
 /* =========================================================
    DETAIL CARDS FIX
 ========================================================= */
-
 .details-section .detail-card {
-
     background: rgba(255, 255, 255, .92);
-
     backdrop-filter: blur(6px);
-
     border: 1px solid rgba(255, 255, 255, .45);
-
     box-shadow: 0 10px 35px rgba(0, 0, 0, .18);
 }
 
 /* TEXTO OSCURO */
-
 .details-section .detail-card h3 {
-
     color: var(--dusty-rose);
 }
 
 .details-section .detail-card p {
-
     color: var(--text);
 }
 
 .detail-card p {
-
     line-height: 1.7;
 }
 
 .details-section .map-link {
-
     color: var(--old-gold);
     font-weight: 600;
 }
@@ -922,7 +771,6 @@ body::before {
 /* =========================================================
    RSVP PREMIUM
 ========================================================= */
-
 .rsvp-section {
     padding-bottom: 20px;
 }
@@ -935,7 +783,6 @@ body::before {
 }
 
 /* NOMBRE */
-
 .rsvp-guest-name {
     font-family: var(--font-serif);
     font-size: clamp(2rem, 4vw, 3rem);
@@ -946,89 +793,58 @@ body::before {
 }
 
 /* MENSAJE */
-
 .rsvp-message {
-
     font-family: var(--font-serif);
-
     font-size: clamp(1.5rem, 3vw, 2.2rem);
-
     font-style: italic;
-
     color: #5b5555;
-
     line-height: 1.7;
-
     margin-bottom: 30px;
 }
 
 /* BADGE PERSONAS */
-
 .guest-badge {
-
     display: inline-flex;
     align-items: center;
     gap: 12px;
-
     padding: 14px 28px;
-
     border-radius: 999px;
-
     background: rgba(255, 255, 255, .78);
-
     border: 1px solid rgba(197, 160, 89, .25);
-
     box-shadow: 0 8px 25px rgba(0, 0, 0, .05);
-
     backdrop-filter: blur(6px);
 }
 
 .guest-badge i {
-
     color: var(--old-gold);
-
     font-size: 1.05rem;
 }
 
 .guest-badge span {
-
     color: #c38e8e;
-
     font-weight: 600;
-
     font-size: 1rem;
 }
 
 /* BOTONES */
-
 .rsvp-buttons {
-
     display: flex;
     justify-content: center;
     gap: 22px;
-
     flex-wrap: wrap;
 }
 
 .rsvp-buttons .gold-btn {
-
     min-width: 240px;
-
     height: 58px;
-
     border-radius: 999px;
-
     font-size: .95rem;
-
     letter-spacing: 3px;
-
     font-weight: 600;
-
     box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
 }
 
 /* RESPONSIVE */
-
 @media (max-width: 768px) {
     .rsvp-content {
         padding: 0 12px;
@@ -1054,27 +870,73 @@ body::before {
     }
 }
 
-.footer-section{
-    background: rgba(255,255,255,.88);
+.footer-section {
+    background: rgba(255, 255, 255, .88);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    text-align:center;
-    padding:0;
-    margin:0;
+    text-align: center;
+    padding: 0;
+    margin: 0;
 }
 
-.signature-footer{
-    font-family:var(--font-serif);
-    font-size:.5rem;
-    color:var(--dusty-rose);
+.signature-footer {
+    font-family: var(--font-serif);
+    font-size: .5rem;
+    color: var(--dusty-rose);
 }
 
-.legal-footer{
-    margin-top:4px;
-    font-size:.4rem;
-    color:rgba(74,74,74,.6);
+.legal-footer {
+    margin-top: 4px;
+    font-size: .4rem;
+    color: rgba(74, 74, 74, .6);
 }
 
 .form-success {
     padding: 20px;
+}
+
+/* =====================================
+   RSVP OVERLAY
+===================================== */
+.sending-overlay {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, .45);
+    backdrop-filter: blur(6px);
+    z-index: 99999;
+}
+
+.sending-box {
+    background: rgba(255, 255, 255, .95);
+    padding: 30px 40px;
+    border-radius: 24px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, .2);
+    min-width: 260px;
+}
+
+.sending-box p {
+    margin-top: 18px;
+    color: var(--dusty-rose);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.sending-spinner {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+    border-radius: 50%;
+    border: 4px solid rgba(197, 160, 89, .25);
+    border-top-color: var(--old-gold);
+    animation: spinLoader 1s linear infinite;
+}
+
+@keyframes spinLoader {
+    to {
+        transform: rotate(360deg);
+    }
 }
