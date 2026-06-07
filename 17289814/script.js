@@ -182,43 +182,43 @@ document.addEventListener('DOMContentLoaded', () => {
     const rsvpButtonsContainer = document.querySelector('.rsvp-buttons');
 
     // Endpoint Local o Apps Script (Actualízalo cuando desployes el backend)
-    const SCRIPT_URL = 'URL_DE_TU_APPS_SCRIPT';
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxYJ5e7zaQswo392j-lwwWJE-Q1yKGap1b2SAZei6iHwo5bj42w24VAIkaulwIvag6L/exec';
 
-    const enviarRSVP = (asistencia) => {
+    const enviarRSVP = async (asistencia) => {
         // Deshabilitar botones
         btnNo.disabled = true;
-        btnNo.innerText = 'No...';
         btnYes.disabled = true;
-        btnYes.innerText = 'Sí...';
 
         // Obtener el nombre. Si no hay nombre en la URL, usar 'Invitado'
-        const name = guestName ? guestName : 'Invitado';
+        const name = guestName ? guestName : 'Invitado No Identificado';
 
         // Datos a enviar
-        const data = {nombre: name, asistencia: asistencia};
+        const data = {
+            invitado: name,
+            cantidad: guestCount || 1,
+            respuesta: asistencia,
+            fechaHora: new Date().toLocaleString('es-CO'),
+            codigo: exp
+        };
 
-        fetch(SCRIPT_URL, {
-            method: 'POST', mode: 'no-cors', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(data)
-        })
-            .then(() => {
-                // Ocultar botones y mostrar mensaje de éxito directamente en la sección
-                rsvpButtonsContainer.classList.add('is-hidden');
-                responseMessage.innerText = `¡Gracias por tu respuesta!`;
-                responseMessage.classList.remove('is-hidden');
-            })
-            .catch(err => {
-                console.error('Error de red al enviar RSVP:', err);
-                alert('Error de conexión local. Verifica tu endpoint o conexión a internet.');
-                // Reabilitar botones
-                btnNo.disabled = false;
-                btnNo.innerText = 'No podré asistir';
-                btnYes.disabled = false;
-                btnYes.innerText = 'Seguro, allí estaré';
+        try {
+            await fetch(SCRIPT_URL, {
+                method:'POST',
+                mode:'no-cors',
+                body:JSON.stringify(data)
             });
+            rsvpButtonsContainer.classList.add('is-hidden');
+            responseMessage.innerText = '¡Gracias por confirmar tu respuesta!';
+            responseMessage.classList.remove('is-hidden');
+        } catch (err) {
+            console.error(err);
+            btnNo.disabled = false;
+            btnYes.disabled = false;
+        }
     };
 
     // Eventos de clic
-    btnNo.addEventListener('click', () => enviarRSVP('No podré asistir'));
-    btnYes.addEventListener('click', () => enviarRSVP('Seguro, allí estaré'));
+    btnNo.addEventListener('click', () => enviarRSVP('No'));
+    btnYes.addEventListener('click', () => enviarRSVP('Si'));
 });
 
