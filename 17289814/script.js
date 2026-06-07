@@ -186,18 +186,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const enviarRSVP = async (asistencia) => {
         // Deshabilitar botones
-        btnNo.disabled = true;
-        btnYes.disabled = true;
-
-        // Obtener el nombre. Si no hay nombre en la URL, usar 'Invitado'
-        const name = guestName ? guestName : 'Invitado No Identificado';
+        rsvpButtonsContainer.classList.add('is-hidden');
+        responseMessage.innerText = '¡Gracias por confirmar tu respuesta!';
+        responseMessage.classList.remove('is-hidden');
 
         // Datos a enviar
         const data = {
-            invitado: name,
+            invitado: guestName || 'Invitado No Identificado',
             cantidad: guestCount || 1,
             respuesta: asistencia,
-            fechaHora: new Date().toLocaleString('es-CO'),
             codigo: exp
         };
 
@@ -207,13 +204,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 mode:'no-cors',
                 body:JSON.stringify(data)
             });
-            rsvpButtonsContainer.classList.add('is-hidden');
-            responseMessage.innerText = '¡Gracias por confirmar tu respuesta!';
-            responseMessage.classList.remove('is-hidden');
         } catch (err) {
             console.error(err);
-            btnNo.disabled = false;
-            btnYes.disabled = false;
         }
     };
 
