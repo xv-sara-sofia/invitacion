@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0">
+
+    <title>Biblioteca de Recuerdos | XV Sara Sofía</title>
+
+    <meta
+            name="theme-color"
+            content="#C8A35D">
+
+    <meta
+            name="description"
+            content="Comparte las fotografías y videos de los XV de Sara Sofía.">
+
+    <link
+            rel="icon"
+            href="favicon.ico">
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link
+            rel="stylesheet"
+            href="17289814/galeria.css">
+
+</head>
+
+<body>
+
+<!-- =====================================================
+     HERO
+====================================================== -->
+
+<header class="hero">
+
+    <img
+            src="87153632/portada-galeria.webp"
+            alt="Biblioteca de Recuerdos"
+            class="hero-image">
+
+    <div class="overlay"></div>
+    <img src="87153632/petal.webp" class="hero-petal one" alt="">
+    <img src="87153632/petal.webp" class="hero-petal two" alt="">
+    <img src="87153632/petal.webp" class="hero-petal three" alt="">
+    <div class="hero-content">
+
+            <span class="hero-subtitle">
+
+                Biblioteca de Recuerdos
+
+            </span>
+
+        <h1>
+
+            Cada fotografía cuenta una historia
+
+        </h1>
+
+        <p>
+
+            Gracias por acompañarnos en esta noche tan especial.
+            Comparte tus mejores fotografías y videos para que este
+            recuerdo permanezca por siempre.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <button
+                    id="btnUpload"
+                    class="btn btn-gold">
+
+                📤 Subir mis fotos y videos
+
+            </button>
+
+            <a
+                    id="btnAlbum"
+                    href="#galeria"
+                    class="btn btn-outline">
+
+                📷 Ver las fotografías
+
+            </a>
+
+        </div>
+
+    </div>
+    <div class="scroll-indicator">
+
+        <span>DESLIZA</span>
+
+    </div>
+</header>
+
+<!-- =====================================================
+     GALERÍA
+====================================================== -->
+
+<section
+        id="galeria"
+        class="gallery-section">
+
+    <div class="container">
+
+        <h2>
+
+            Últimos recuerdos compartidos
+
+        </h2>
+
+        <p class="subtitle">
+
+            Una pequeña muestra de los momentos más especiales.
+
+        </p>
+
+        <div
+                id="galleryGrid"
+                class="gallery-grid">
+
+        </div>
+
+        <div class="center">
+
+            <a
+                    id="btnAlbumCompleto"
+                    class="btn btn-gold">
+
+                Ver todas las fotografías
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =====================================================
+     COMO PARTICIPAR
+====================================================== -->
+
+<section class="steps">
+
+    <div class="container">
+
+        <h2>
+
+            ¿Cómo participar?
+
+        </h2>
+
+        <div class="steps-grid">
+
+            <div class="step">
+
+                <div class="number">
+
+                    1
+
+                </div>
+
+                <h3>
+
+                    Toma fotografías
+
+                </h3>
+
+                <p>
+
+                    Captura tus momentos favoritos durante la celebración.
+
+                </p>
+
+            </div>
+
+            <div class="step">
+
+                <div class="number">
+
+                    2
+
+                </div>
+
+                <h3>
+
+                    Súbelas
+
+                </h3>
+
+                <p>
+
+                    Comparte tus fotografías y videos mediante nuestro formulario.
+
+                </p>
+
+            </div>
+
+            <div class="step">
+
+                <div class="number">
+
+                    3
+
+                </div>
+
+                <h3>
+
+                    Disfrútalas
+
+                </h3>
+
+                <p>
+
+                    Regresa a esta página para revivir los mejores momentos.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!--======================================================
+LIGHTBOX
+=======================================================-->
+
+<div id="lightbox" class="lightbox hidden">
+
+    <button
+            id="closeLightbox"
+            class="lightbox-close">
+
+        ×
+
+    </button>
+
+    <button
+            id="prevPhoto"
+            class="lightbox-arrow left">
+
+        ❮
+
+    </button>
+
+    <div class="lightbox-content">
+
+        <img
+                id="lightboxImage"
+                src=""
+                alt="Fotografía">
+
+        <div class="lightbox-info">
+
+            <h3 id="photoAuthor">
+
+                Invitado
+
+            </h3>
+
+            <p id="photoDate">
+
+                15 Noviembre 2026
+
+            </p>
+
+            <span id="photoCounter">
+
+            1 / 1
+
+        </span>
+
+        </div>
+
+    </div>
+
+    <button
+            id="nextPhoto"
+            class="lightbox-arrow right">
+
+        ❯
+
+    </button>
+
+</div>
+<!-- =====================================================
+     FOOTER
+====================================================== -->
+
+<footer>
+
+    <p>
+
+        Gracias por ser parte de esta historia 💜
+
+    </p>
+
+    <small>
+
+        XV Sara Sofía · 2026
+
+    </small>
+
+</footer>
+
+<!-- =====================================================
+     MODAL
+====================================================== -->
+
+<div
+        id="uploadModal"
+        class="modal hidden">
+
+    <div class="modal-card">
+
+        <button
+                id="closeModal"
+                class="close-button">
+
+            ×
+
+        </button>
+
+        <h2>
+
+            Comparte tus recuerdos
+
+        </h2>
+
+        <p>
+
+            Podrás subir fotografías y videos de la celebración.
+
+        </p>
+
+        <ul>
+
+            <li>📷 Puedes seleccionar varias fotografías.</li>
+
+            <li>🎥 También puedes compartir videos.</li>
+
+            <li>✨ Conserva la calidad original.</li>
+
+            <li>💜 Gracias por ayudarnos a recordar esta noche.</li>
+
+        </ul>
+
+        <button
+                id="continueButton"
+                class="btn btn-gold">
+
+            Continuar
+
+        </button>
+
+        <small>
+
+            Se abrirá una nueva pestaña con el formulario.
+
+        </small>
+
+    </div>
+
+</div>
+
+<script src="17289814/galeria.js"></script>
+
+</body>
+
+</html>
