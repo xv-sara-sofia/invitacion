@@ -960,6 +960,36 @@ LIGHTBOX
 
 }
 
+/*==========================================================
+LIGHTBOX MEDIA
+==========================================================*/
+
+.lightbox-media{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.lightbox-media img,
+
+.lightbox-media video{
+
+    max-width:100%;
+
+    max-height:75vh;
+
+    border-radius:18px;
+
+    object-fit:contain;
+
+}
+
 .left{
 
     left:25px;
@@ -1053,5 +1083,81 @@ GALERÍA VACÍA
 .empty-gallery p{
 
     color:var(--color-text-light);
+
+}
+
+/*==========================================================
+VIDEO BADGE
+==========================================================*/
+
+.gallery-card{
+
+    position:relative;
+
+}
+
+.video-badge{
+
+    position:absolute;
+
+    right:12px;
+
+    bottom:12px;
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    background:rgba(0,0,0,.65);
+
+    color:#fff;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:18px;
+
+    backdrop-filter:blur(6px);
+
+    pointer-events:none;
+
+}
+
+/*==========================================================
+INFORMACIÓN DE LA GALERÍA
+==========================================================*/
+
+.gallery-info{
+
+    text-align:center;
+
+    margin:1.5rem auto 2rem;
+
+}
+
+.gallery-stats{
+
+    font-size:1rem;
+
+    line-height:1.8;
+
+    color:var(--color-text);
+
+}
+
+.gallery-update{
+
+    margin-top:.6rem;
+
+    font-size:.9rem;
+
+    color:var(--color-text-light);
+
+    opacity:.8;
 
 }

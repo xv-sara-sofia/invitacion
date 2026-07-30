@@ -53,11 +53,21 @@ class GalleryApp {
         Inicialización
         ==================================*/
 
+        this.init();
+
+    }
+
+    /*==================================
+    Inicialización
+    ==================================*/
+
+    async init(){
+
         this.cacheDOM();
 
         this.bindEvents();
 
-        this.loadGallery();
+        await this.loadGallery();
 
     }
 
@@ -110,9 +120,9 @@ class GalleryApp {
 
             document.getElementById("lightbox");
 
-        this.lightboxImage=
+        this.lightboxMedia=
 
-            document.getElementById("lightboxImage");
+            document.getElementById("lightboxMedia");
 
         this.closeLightbox=
 
@@ -125,6 +135,14 @@ class GalleryApp {
         this.nextPhoto=
 
             document.getElementById("nextPhoto");
+
+        this.galleryStatsContainer =
+
+            document.getElementById("galleryStats");
+
+        this.galleryUpdate =
+
+            document.getElementById("galleryUpdate");
 
     }
 
@@ -312,9 +330,7 @@ class GalleryApp {
 
             const data = await response.json();
 
-            this.images = data.gallery;
-
-            this.renderGallery();
+            this.parseGalleryData(data);
 
         }
         catch(error){
@@ -332,11 +348,76 @@ class GalleryApp {
     }
 
     /*==================================
+    Procesar respuesta de la API
+    ==================================*/
+
+    parseGalleryData(data){
+
+        this.images=data.gallery||[];
+
+        this.galleryStatsData=data.stats||{};
+
+        this.galleryUpdateData=data.event||{};
+
+        this.renderStats();
+
+        this.renderGallery();
+
+    }
+
+    /*==================================
+    Renderizar estadísticas
+    ==================================*/
+
+    renderStats(){
+
+        if(!this.galleryStats){
+
+            return;
+
+        }
+
+        const stats=this.galleryStatsData;
+
+        if(!stats){
+
+            return;
+
+        }
+
+        this.galleryStats.innerHTML=`
+
+        💜 <strong>${stats.totalItems}</strong> recuerdos compartidos
+
+        <br>
+
+        📸 ${stats.totalImages} fotografías
+
+        •
+
+        🎥 ${stats.totalVideos} videos
+
+    `;
+
+        if(this.galleryUpdateData?.generatedAt){
+
+            this.galleryUpdate.textContent=
+
+                `Actualizado el ${this.formatDateTime(
+
+                    this.galleryUpdateData.generatedAt
+
+                )}`;
+
+        }
+
+    }
+
+    /*==================================
     Renderizar galería
     ==================================*/
 
     renderGallery(){
-
         this.gallery.innerHTML="";
 
         if(this.images.length===0){
@@ -367,7 +448,7 @@ class GalleryApp {
 
         }
 
-        this.images.forEach((photo,index)=>{
+        this.images.forEach((item,index)=>{
 
             const card=document.createElement("article");
 
@@ -375,17 +456,23 @@ class GalleryApp {
 
             card.innerHTML=`
 
-            <img
+        <img
 
-                loading="lazy"
+            loading="lazy"
 
-                src="${photo.image}"
+            src="${item.thumbnail}"
 
-                alt="${photo.author}"
+            alt="${item.name}"
 
-            >
+        >
 
-        `;
+        ${item.type==="video"
+
+                ?'<div class="video-badge">▶</div>'
+
+                :''}
+
+    `;
 
             card.addEventListener(
 
@@ -423,25 +510,107 @@ class GalleryApp {
 
     updateLightbox(){
 
-        const photo=
+        const item=this.images[this.currentIndex];
 
-            this.images[this.currentIndex];
-
-        this.lightboxImage.src=
-
-            photo.image;
+        this.renderViewer(item);
 
         this.photoAuthor.textContent=
 
-            photo.author;
+            item.name;
 
         this.photoDate.textContent=
 
-            photo.date;
+            this.formatDate(item.updated);
 
         this.photoCounter.textContent=
 
             `${this.currentIndex+1} / ${this.images.length}`;
+
+    }
+
+    /*==================================
+    Formatear fecha y hora
+    ==================================*/
+
+    formatDateTime(date){
+
+        return new Intl.DateTimeFormat(
+
+            "es-CO",
+
+            {
+
+                dateStyle:"long",
+
+                timeStyle:"short"
+
+            }
+
+        ).format(
+
+            new Date(date)
+
+        );
+
+    }
+
+    formatDate(date){
+
+        return new Intl.DateTimeFormat(
+
+            "es-CO",
+
+            {
+
+                dateStyle:"long"
+
+            }
+
+        ).format(
+
+            new Date(date)
+
+        );
+
+    }
+
+    /*==================================
+    Renderizar visor
+    ==================================*/
+
+    renderViewer(item){
+
+        this.lightboxMedia.innerHTML="";
+
+        if(item.type==="image"){
+
+            const image=document.createElement("img");
+
+            image.src=item.image;
+
+            image.alt=item.name;
+
+            image.loading="eager";
+
+            this.lightboxMedia.appendChild(image);
+
+        }
+
+        else if(item.type==="video"){
+
+            const video=document.createElement("video");
+
+            video.src=item.image;
+
+            video.controls=true;
+
+            video.autoplay=true;
+
+            video.playsInline=true;
+
+            this.lightboxMedia.appendChild(video);
+
+        }
 
     }
 
