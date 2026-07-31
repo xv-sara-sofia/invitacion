@@ -12,6 +12,8 @@ const CONFIG = {
     GOOGLE_FORM_URL:
         "https://forms.gle/udcQ727vQbSTaZUYA",
 
+    ITEMS_PER_BATCH:24,
+
     AUTO_REFRESH: true,
 
     REFRESH_DELAY: 2500,
@@ -43,6 +45,10 @@ class GalleryApp {
         this.images=[];
 
         this.currentIndex=0;
+
+        this.renderedItems=0;
+
+        this.loadingMore=false;
 
         /*==================================
         Inicialización
@@ -196,6 +202,14 @@ class GalleryApp {
             "focus",
 
             ()=>this.onReturnFromForm()
+
+        );
+
+        window.addEventListener(
+
+            "scroll",
+
+            ()=>this.handleScroll()
 
         );
 
@@ -409,86 +423,124 @@ class GalleryApp {
     ==================================*/
 
     renderGallery(){
+
         this.gallery.innerHTML="";
 
-        if(this.images.length===0){
+        this.renderedItems=0;
 
-            this.gallery.innerHTML=
+        this.renderNextBatch();
 
-                `
+    }
 
-            <div class="empty-gallery">
+    /*==================================
+   Renderizar siguiente lote
+   ==================================*/
 
-                <h3>
+    renderNextBatch(){
 
-                    Aún no hay recuerdos compartidos.
+        const end=Math.min(
 
-                </h3>
+            this.renderedItems+CONFIG.ITEMS_PER_BATCH,
 
-                <p>
+            this.images.length
 
-                    Sé el primero en subir una fotografía.
+        );
 
-                </p>
+        for(
 
-            </div>
+            let i=this.renderedItems;
 
-        `;
+            i<end;
 
-            return;
+            i++
 
-        }
+        ){
 
-        this.images.forEach((item,index)=>{
+            const item=this.images[i];
 
             const card=document.createElement("article");
 
             card.className="gallery-card";
 
-            card.style.opacity="0";
-
-            card.style.transform="translateY(10px)";
-
             card.innerHTML=`
 
-        <img
+            <img
 
-            loading="lazy"
+                loading="lazy"
 
-            src="${item.thumbnail}"
+                src="${item.thumbnail}"
 
-            alt="${item.name}"
+                alt="${item.name}"
 
-        >
+            >
 
-        ${item.type==="video"
+            ${item.type==="video"
 
                 ?'<div class="video-badge">▶</div>'
 
                 :''}
 
-    `;
+        `;
 
             card.addEventListener(
 
                 "click",
 
-                ()=>this.openLightbox(index)
+                ()=>this.openLightbox(i)
 
             );
 
             this.gallery.appendChild(card);
 
-            requestAnimationFrame(()=>{
+        }
 
-                card.style.transition="opacity .35s ease, transform .35s ease";
+        this.renderedItems=end;
 
-                card.style.opacity="1";
+    }
 
-                card.style.transform="translateY(0)";
+    /*==================================
+    Scroll infinito
+    ==================================*/
 
-            });
-        });
+    handleScroll(){
+
+        if(this.loadingMore){
+
+            return;
+
+        }
+
+        if(
+
+            this.renderedItems>=this.images.length
+
+        ){
+
+            return;
+
+        }
+
+        const threshold=300;
+
+        if(
+
+            window.innerHeight+
+
+            window.scrollY>=
+
+            document.body.offsetHeight-
+
+            threshold
+
+        ){
+
+            this.loadingMore=true;
+
+            this.renderNextBatch();
+
+            this.loadingMore=false;
+
+        }
 
     }
 
