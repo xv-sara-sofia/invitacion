@@ -6,8 +6,6 @@
 
 const CONFIG = {
 
-    EVENT_NAME: "XV Sara Sofía",
-
     API_URL:
         "https://script.google.com/macros/s/AKfycbyWUk6Tt_gffF5whQzWnKrgxchUoVp8Poe_onVhB1t6EqPR4NSDgjICQB5X0REa2uYw/exec",
 
@@ -37,9 +35,6 @@ class GalleryApp {
 
         this.googleFormURL=
             CONFIG.GOOGLE_FORM_URL;
-
-        this.albumURL=
-            CONFIG.GOOGLE_PHOTOS_URL;
 
         /*==================================
         Estado
@@ -95,10 +90,6 @@ class GalleryApp {
         this.btnAlbum=
 
             document.getElementById("btnAlbum");
-
-        this.btnAlbumCompleto=
-
-            document.getElementById("btnAlbumCompleto");
 
         this.gallery=
 
@@ -315,7 +306,7 @@ class GalleryApp {
     ==================================*/
 
     async loadGallery(){
-
+        this.showSkeleton();
         try{
 
             const response = await fetch(CONFIG.API_URL);
@@ -454,6 +445,10 @@ class GalleryApp {
 
             card.className="gallery-card";
 
+            card.style.opacity="0";
+
+            card.style.transform="translateY(10px)";
+
             card.innerHTML=`
 
         <img
@@ -484,6 +479,15 @@ class GalleryApp {
 
             this.gallery.appendChild(card);
 
+            requestAnimationFrame(()=>{
+
+                card.style.transition="opacity .35s ease, transform .35s ease";
+
+                card.style.opacity="1";
+
+                card.style.transform="translateY(0)";
+
+            });
         });
 
     }
@@ -661,6 +665,32 @@ class GalleryApp {
         }
 
         this.updateLightbox();
+
+    }
+
+    /*==================================
+    Skeleton Loader
+    ==================================*/
+
+    showSkeleton(){
+
+        this.gallery.innerHTML="";
+
+        for(let i=0;i<12;i++){
+
+            const skeleton=document.createElement("article");
+
+            skeleton.className="gallery-card skeleton-card";
+
+            skeleton.innerHTML=`
+
+            <div class="skeleton-image"></div>
+
+        `;
+
+            this.gallery.appendChild(skeleton);
+
+        }
 
     }
 }
