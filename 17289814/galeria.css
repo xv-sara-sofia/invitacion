@@ -5,36 +5,11 @@
    ========================================================== */
 
 
-/* ==========================================================
-   VARIABLES
-   ========================================================== */
+/*==========================================================
+01 VARIABLES
+==========================================================*/
 
 :root{
-
-    /* Colores principales */
-
-    --color-primary:#C8A35D;
-    --color-primary-dark:#B08C4B;
-
-    --color-secondary:#EFD6D9;
-
-    --color-bg:#FFFDF9;
-
-    --color-bg-soft:#F9F4F2;
-
-    --color-white:#FFFFFF;
-
-    --color-text:#4B403B;
-
-    --color-text-light:#786C66;
-
-    --color-border:#E9DDD7;
-
-    --color-success:#2F7A45;
-
-    --color-error:#C54242;
-
-    /* Tipografías */
 
     --font-title:'Playfair Display',serif;
 
@@ -42,32 +17,63 @@
 
     --font-body:'Montserrat',sans-serif;
 
-    /* Medidas */
+    /*==================================
+    Colores
+    ==================================*/
 
-    --container:1200px;
+    --color-primary:#c7a86d;
+    --color-primary-dark:#b28f4d;
 
-    --radius-xs:8px;
+    --color-background:#fffdf9;
+    --color-surface:#ffffff;
 
-    --radius-sm:14px;
+    --color-text:#473a3f;
+    --color-text-light:#7b6c72;
 
-    --radius-md:22px;
+    --color-border:#ece4e7;
 
-    --radius-lg:34px;
+    /*==================================
+    Bordes
+    ==================================*/
 
-    /* Sombras */
+    --radius-sm:12px;
+    --radius-md:18px;
+    --radius-lg:28px;
+    --radius-pill:999px;
+
+    /*==================================
+    Sombras
+    ==================================*/
 
     --shadow-sm:
-            0 8px 20px rgba(0,0,0,.05);
+            0 4px 12px rgba(0,0,0,.08);
 
     --shadow-md:
-            0 14px 35px rgba(0,0,0,.08);
+            0 10px 24px rgba(0,0,0,.10);
 
     --shadow-lg:
-            0 30px 70px rgba(0,0,0,.12);
+            0 18px 40px rgba(0,0,0,.14);
 
-    /* Animaciones */
+    --shadow-xl:
+            0 20px 60px rgba(0,0,0,.45);
 
-    --transition:.35s ease;
+    /*==================================
+    Transiciones
+    ==================================*/
+
+    --transition-fast:var(--transition);
+
+    --transition:var(--transition);
+
+    --transition-slow:var(--transition);
+
+    /*==================================
+    Layout
+    ==================================*/
+
+    --container-width:1200px;
+
+    --content-width:760px;
 
 }
 
@@ -94,7 +100,7 @@ html{
 
 body{
 
-    background:var(--color-bg);
+    background:var(--color-background);
 
     color:var(--color-text);
 
@@ -148,15 +154,15 @@ ul{
 }
 
 
-/* ==========================================================
-   CONTENEDOR
-   ========================================================== */
+/*==========================================================
+03 LAYOUT
+==========================================================*/
 
 .container{
 
-    width:min(92%,var(--container));
+    width:min(92%,var(--container-width));
 
-    margin:auto;
+    margin-inline:auto;
 
 }
 
@@ -239,65 +245,59 @@ section{
 }
 
 
-/* ==========================================================
-   BOTONES
-   ========================================================== */
+/*==========================================================
+04 BOTONES
+==========================================================*/
 
 .btn{
 
     display:inline-flex;
 
-    justify-content:center;
-
     align-items:center;
 
-    gap:10px;
+    justify-content:center;
 
-    min-width:220px;
+    gap:.5rem;
 
-    padding:16px 34px;
+    padding:.9rem 1.6rem;
 
-    border-radius:999px;
+    border:none;
 
-    transition:var(--transition);
+    border-radius:var(--radius-pill);
 
-    font-weight:600;
+    cursor:pointer;
 
-    font-size:1rem;
+    font:inherit;
+
+    transition:all var(--transition);
 
 }
 
-.btn-gold{
+.btn-primary{
 
     background:var(--color-primary);
 
-    color:white;
+    color:var(--color-surface);
 
     box-shadow:var(--shadow-md);
 
 }
 
-.btn-gold:hover{
+.btn-primary:hover{
 
     background:var(--color-primary-dark);
 
-    transform:translateY(-3px);
+    transform:translateY(-2px);
 
 }
 
 .btn-outline{
 
-    border:2px solid white;
+    background:transparent;
 
-    color:white;
+    border:2px solid var(--color-primary);
 
-}
-
-.btn-outline:hover{
-
-    background:white;
-
-    color:var(--color-text);
+    color:var(--color-primary);
 
 }
 
@@ -308,7 +308,7 @@ section{
 
 .card{
 
-    background:white;
+    background:var(--color-surface);
 
     border-radius:var(--radius-md);
 
@@ -347,7 +347,7 @@ section{
 
     transform:none;
 
-    transition:all .8s ease;
+    transition:all var(--transition);
 
 }
 
@@ -371,7 +371,7 @@ section{
 
     overflow:hidden;
 
-    background:#000;
+    background:var(--color-background);
 
 }
 
@@ -434,13 +434,13 @@ CONTENIDO
 
     text-align:center;
 
-    color:white;
+    color:var(--color-surface);
 
 }
 
 .hero-content h1{
 
-    color:white;
+    color:var(--color-surface);
 
     margin-bottom:25px;
 
@@ -516,7 +516,7 @@ SCROLL INDICATOR
 
     display:block;
 
-    color:white;
+    color:var(--color-surface);
 
     font-size:.9rem;
 
@@ -534,7 +534,7 @@ SCROLL INDICATOR
 
     text-align:center;
 
-    color:white;
+    color:var(--color-surface);
 
     font-size:1.6rem;
 
@@ -656,6 +656,53 @@ ANIMACIONES
 
 }
 
+@keyframes skeleton-loading{
+
+    0%{
+
+        background-position:100% 0;
+
+    }
+
+    100%{
+
+        background-position:-100% 0;
+
+    }
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+@keyframes loading-card{
+
+    from{
+
+        background-position:100%;
+
+    }
+
+    to{
+
+        background-position:-100%;
+
+    }
+
+}
 
 /*==========================================================
 RESPONSIVE
@@ -701,41 +748,6 @@ RESPONSIVE
 
 }
 
-/* ==========================================================
-   GALERÍA
-   ========================================================== */
-
-.gallery-section{
-
-    background:var(--color-bg);
-
-    position:relative;
-
-}
-
-.gallery-section h2{
-
-    text-align:center;
-
-}
-
-/*==========================================================
-GALERÍA
-==========================================================*/
-
-.gallery-grid{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(auto-fill,minmax(170px,1fr));
-
-    gap:12px;
-
-    margin-top:2rem;
-
-}
-
 @media (max-width:768px){
 
     .gallery-grid{
@@ -762,6 +774,47 @@ GALERÍA
 
 }
 
+/* ==========================================================
+   GALERÍA
+   ========================================================== */
+
+.gallery-section{
+
+    background:var(--color-background);
+
+    position:relative;
+
+}
+
+.gallery-section h2{
+
+    text-align:center;
+
+}
+
+.gallery-section .center{
+
+    margin-top:60px;
+
+}
+
+/*==========================================================
+GALERÍA
+==========================================================*/
+
+.gallery-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(auto-fill,minmax(170px,1fr));
+
+    gap:12px;
+
+    margin-top:2rem;
+
+}
+
 /*==========================================================
 TARJETA
 ==========================================================*/
@@ -774,17 +827,15 @@ TARJETA
 
     overflow:hidden;
 
-    border-radius:14px;
+    border-radius:var(--radius-md);
 
     background:#f6f3f4;
 
     cursor:pointer;
 
     transition:
-
-            transform .25s ease,
-
-            box-shadow .25s ease;
+            transform var(--transition),
+            box-shadow var(--transition);
 
 }
 
@@ -792,7 +843,7 @@ TARJETA
 
     transform:translateY(-3px);
 
-    box-shadow:0 12px 26px rgba(0,0,0,.12);
+    box-shadow:var(--shadow-lg);
 
 }
 
@@ -810,7 +861,8 @@ IMAGEN
 
     display:block;
 
-    transition:transform .35s ease;
+    transition:
+            transform var(--transition);
 
 }
 
@@ -845,7 +897,7 @@ OVERLAY
 
     opacity:0;
 
-    transition:.35s;
+    transition:var(--transition);
 
 }
 
@@ -882,7 +934,7 @@ ICONO
 
     z-index:5;
 
-    transition:.35s;
+    transition:var(--transition);
 
 }
 
@@ -895,17 +947,6 @@ ICONO
             translate(-50%,-50%)
 
             scale(1);
-
-}
-
-
-/*==========================================================
-BOTÓN
-==========================================================*/
-
-.gallery-section .center{
-
-    margin-top:60px;
 
 }
 
@@ -939,11 +980,9 @@ LIGHTBOX
 
     max-height:88vh;
 
-    border-radius:18px;
+    border-radius:var(--radius-md);
 
-    box-shadow:
-
-            0 20px 60px rgba(0,0,0,.45);
+    box-shadow:var(--shadow-xl);
 
 }
 
@@ -955,7 +994,7 @@ LIGHTBOX
 
     right:30px;
 
-    color:white;
+    color:var(--color-surface);
 
     font-size:42px;
 
@@ -971,7 +1010,7 @@ LIGHTBOX
 
     transform:translateY(-50%);
 
-    color:white;
+    color:var(--color-surface);
 
     font-size:52px;
 
@@ -983,7 +1022,7 @@ LIGHTBOX
 
     background:rgba(255,255,255,.10);
 
-    transition:.3s;
+    transition:var(--transition);
 
 }
 
@@ -1017,7 +1056,7 @@ LIGHTBOX MEDIA
 
     max-height:75vh;
 
-    border-radius:18px;
+    border-radius:var(--radius-md);
 
     object-fit:contain;
 
@@ -1035,22 +1074,6 @@ LIGHTBOX MEDIA
 
 }
 
-@keyframes fadeIn{
-
-    from{
-
-        opacity:0;
-
-    }
-
-    to{
-
-        opacity:1;
-
-    }
-
-}
-
 /*==========================================================
 TOAST
 ==========================================================*/
@@ -1065,19 +1088,19 @@ TOAST
 
     transform:translateX(-50%) translateY(120px);
 
-    background:#ffffff;
+    background:var(--color-surface);
 
     color:var(--color-text);
 
     padding:14px 26px;
 
-    border-radius:999px;
+    border-radius:var(--radius-pill);
 
     box-shadow:var(--shadow-lg);
 
     z-index:99999;
 
-    transition:.4s;
+    transition:var(--transition);
 
     opacity:0;
 
@@ -1123,12 +1146,6 @@ GALERÍA VACÍA
 VIDEO BADGE
 ==========================================================*/
 
-.gallery-card{
-
-    position:relative;
-
-}
-
 .video-badge{
 
     position:absolute;
@@ -1145,7 +1162,7 @@ VIDEO BADGE
 
     background:rgba(0,0,0,.65);
 
-    color:#fff;
+    color:var(--color-surface);
 
     display:flex;
 
@@ -1167,31 +1184,41 @@ INFORMACIÓN DE LA GALERÍA
 
 .gallery-info{
 
-    text-align:center;
-
-    margin:1.5rem auto 2rem;
+    margin:35px auto;
 
 }
 
 .gallery-stats{
 
-    font-size:1rem;
+    display:inline-flex;
 
-    line-height:1.8;
+    gap:24px;
 
-    color:var(--color-text);
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:16px 28px;
+
+    border-radius:var(--radius-pill);
+
+    background:var(--color-surface);
+
+    box-shadow:var(--shadow-sm);
+
+    font-weight:600;
 
 }
 
 .gallery-update{
 
-    margin-top:.6rem;
-
-    font-size:.9rem;
+    margin-top:14px;
 
     color:var(--color-text-light);
 
-    opacity:.8;
+    font-size:.9rem;
 
 }
 
@@ -1225,18 +1252,193 @@ SKELETON LOADER
     animation:skeleton-loading 1.3s infinite;
 }
 
-@keyframes skeleton-loading{
+/*==========================================================
+LOADER DE CADA TARJETA
+==========================================================*/
 
-    0%{
+.card-loader{
 
-        background-position:100% 0;
+    position:absolute;
 
-    }
+    inset:0;
 
-    100%{
+    background:linear-gradient(
+            90deg,
+            #f2edef 25%,
+            #ebe5e8 50%,
+            #f2edef 75%
+    );
 
-        background-position:-100% 0;
+    background-size:300% 100%;
 
-    }
+    animation:loading-card 1.2s infinite;
+}
+
+.gallery-image{
+
+    opacity:0;
+
+    transition:opacity var(--transition);
+}
+
+.gallery-card.loaded .gallery-image{
+
+    opacity:1;
+
+}
+
+.gallery-card.loaded .card-loader{
+
+    display:none;
+
+}
+
+/*==========================================================
+HEADER
+==========================================================*/
+
+.gallery-header{
+
+    padding:70px 0 50px;
+
+    text-align:center;
+
+    background:
+
+            linear-gradient(
+                    180deg,
+                    #fffdf9 0%,
+                    #f9f4f2 100%
+            );
+
+}
+
+.gallery-icon{
+
+    width:84px;
+
+    height:84px;
+
+    margin:0 auto 22px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:2rem;
+
+    background:var(--color-surface);
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+.gallery-header h1{
+
+    margin-bottom:18px;
+
+}
+
+.gallery-description{
+
+    max-width:680px;
+
+    margin:0 auto 35px;
+
+    color:var(--color-text-light);
+
+    font-size:1.05rem;
+
+    line-height:1.9;
+
+}
+
+.gallery-actions{
+
+    margin:40px 0 18px;
+
+}
+
+.gallery-note{
+
+    max-width:520px;
+
+    margin:0 auto;
+
+    color:var(--color-text-light);
+
+    font-size:.95rem;
+
+}
+
+.gallery-content{
+
+    padding:40px 0 80px;
+
+}
+
+.gallery-content>.container{
+
+    width:min(92%,var(--container-width));
+
+    margin:auto;
+
+}
+
+.gallery-content h2{
+
+    text-align:center;
+
+    margin-bottom:10px;
+
+}
+
+.gallery-content>p{
+
+    text-align:center;
+
+    color:var(--color-text-light);
+
+    max-width:650px;
+
+    margin:0 auto 35px;
+
+}
+
+.gallery-footer{
+
+    padding:70px 20px;
+
+    text-align:center;
+
+    background:#f9f4f2;
+
+    border-top:1px solid var(--color-border);
+
+}
+
+.gallery-footer h3{
+
+    margin-bottom:14px;
+
+}
+
+.gallery-footer p{
+
+    max-width:600px;
+
+    margin:0 auto 20px;
+
+    color:var(--color-text-light);
+
+}
+
+.gallery-footer span{
+
+    font-size:1.05rem;
 
 }

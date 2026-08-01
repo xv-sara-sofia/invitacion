@@ -462,25 +462,37 @@ class GalleryApp {
 
             card.className="gallery-card";
 
-            card.innerHTML=`
+            card.innerHTML = `
 
-            <img
+                <div class="card-loader"></div>
+            
+                <img
+            
+                    loading="lazy"
+            
+                    src="${item.thumbnail}"
+            
+                    alt="${item.name}"
+            
+                    class="gallery-image"
+            
+                >
+            
+                ${item.type==="video"
+            
+                            ?'<div class="video-badge">▶</div>'
+            
+                            :''}
+            
+            `;
 
-                loading="lazy"
+            const image = card.querySelector("img");
 
-                src="${item.thumbnail}"
+            image.onload = ()=>{
 
-                alt="${item.name}"
+                card.classList.add("loaded");
 
-            >
-
-            ${item.type==="video"
-
-                ?'<div class="video-badge">▶</div>'
-
-                :''}
-
-        `;
+            };
 
             card.addEventListener(
 
