@@ -158,14 +158,6 @@ class GalleryApp {
 
             document.getElementById("uploadModal");
 
-        this.closeModalButton=
-
-            document.getElementById("closeModal");
-
-        this.continueButton=
-
-            document.getElementById("continueButton");
-
         this.lightbox=
 
             document.getElementById("lightbox");
@@ -203,22 +195,6 @@ class GalleryApp {
     bindEvents(){
 
         this.btnUpload.addEventListener(
-
-            "click",
-
-            ()=>this.openModal()
-
-        );
-
-        this.closeModalButton.addEventListener(
-
-            "click",
-
-            ()=>this.closeModal()
-
-        );
-
-        this.continueButton.addEventListener(
 
             "click",
 
@@ -405,42 +381,17 @@ class GalleryApp {
     }
 
     /*==================================
-    Abrir Modal
-    ==================================*/
-
-    openModal(){
-
-        this.modal.classList.remove("hidden");
-
-        document.body.style.overflow="hidden";
-
-    }
-
-    /*==================================
-    Cerrar Modal
-    ==================================*/
-
-    closeModal(){
-
-        this.modal.classList.add("hidden");
-
-        document.body.style.overflow="";
-
-    }
-
-    /*==================================
     Abrir Formulario
     ==================================*/
 
     openGoogleForm(){
 
-        this.closeModal();
-
         window.open(
 
             this.googleFormURL,
 
-            "_blank"
+            "_blank",
+            "noopener,noreferrer"
 
         );
 
@@ -595,9 +546,7 @@ class GalleryApp {
 
         this.galleryStats.innerHTML=`
 
-        💜 <strong>${stats.totalItems}</strong> recuerdos compartidos
-
-        <br>
+        💜 <strong>${stats.totalItems} recuerdos</strong>
 
         📸 ${stats.totalImages} fotografías
 
@@ -606,18 +555,6 @@ class GalleryApp {
         🎥 ${stats.totalVideos} videos
 
     `;
-
-        if(this.galleryUpdateData?.generatedAt){
-
-            this.galleryUpdate.textContent=
-
-                `Actualizado el ${this.formatDateTime(
-
-                    this.galleryUpdateData.generatedAt
-
-                )}`;
-
-        }
 
     }
 
@@ -1072,6 +1009,7 @@ document.addEventListener(
 
     "DOMContentLoaded",
 
-    ()=>new GalleryApp()
-
+    ()=> {
+        new GalleryApp();
+    }
 );

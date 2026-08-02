@@ -45,111 +45,104 @@ HEADER
 ===========================================================-->
 
 <header class="gallery-header">
+    <div class="gallery-header-content">
+        <div class="container">
 
-    <div class="container">
+            <!-- Icono -->
 
-        <!-- Icono -->
+            <div class="gallery-icon">
 
-        <div class="gallery-icon">
-
-            📸
-
-        </div>
-
-        <!-- Título -->
-
-        <h1>
-
-            Biblioteca de Recuerdos
-
-        </h1>
-
-        <!-- Descripción -->
-
-        <p class="gallery-description">
-
-            Cada fotografía y cada video conservan un instante único
-            de esta noche tan especial.
-
-            <br><br>
-
-            Gracias por compartir estos recuerdos. 💜
-
-        </p>
-
-        <!-- Estadísticas -->
-
-        <section class="gallery-info">
-
-            <div
-                    id="galleryStats"
-                    class="gallery-stats">
-
-                Cargando recuerdos...
+                📸
 
             </div>
 
-            <div
-                    id="galleryUpdate"
-                    class="gallery-update">
+            <!-- Título -->
+
+            <h1>
+
+                Biblioteca de Recuerdos
+
+            </h1>
+
+            <!-- Descripción -->
+
+            <p class="gallery-description">
+
+                Cada fotografía y cada video conservan un instante único de una noche
+                que siempre recordaremos. Ahora también puedes ser parte de
+                esta historia compartiendo tus propios recuerdos para que todos
+                podamos revivir este momento especial.
+                Gracias por ayudarnos a conservarlos. 💜
+
+            </p>
+
+            <!-- Acción principal -->
+
+            <div class="gallery-actions">
+
+                <button
+
+                        id="btnUpload"
+
+                        class="btn btn-primary">
+
+                    📷 Compartir mis recuerdos
+
+                </button>
 
             </div>
 
-        </section>
 
-        <!-- Acción principal -->
+            <!-- Estadísticas -->
 
-        <div class="gallery-actions">
+                <div
+                        id="galleryStats"
+                        class="gallery-stats">
 
-            <button
+                    Cargando recuerdos...
 
-                    id="btnUpload"
+                </div>
 
-                    class="btn btn-primary">
+                <div
+                        id="galleryUpdate"
+                        class="gallery-update">
 
-                📷 Agregar mis recuerdos
-
-            </button>
+                </div>
 
         </div>
-
-        <!-- Mensaje -->
-
-        <p class="gallery-note">
-
-            Tus fotografías y videos aparecerán en la galería
-            una vez sean revisados.
-
-        </p>
-
     </div>
-
 </header>
-
 <!--==========================================================
 GALERÍA
 ===========================================================-->
 
 <section class="gallery-content">
 
-    <h2>
 
-        Últimos recuerdos compartidos
+    <div class="container">
 
-    </h2>
+        <div class="gallery-heading">
 
-    <p>
+            <h2>
 
-        Explora las fotografías y videos compartidos por familiares y amigos.
+                Últimos recuerdos compartidos
 
-    </p>
+            </h2>
 
-    <div
-            id="galleryGrid"
-            class="gallery-grid">
+            <p>
 
+                Explora las fotografías y videos compartidos por familiares y amigos.
+
+            </p>
+
+        </div>
+
+        <div
+                id="galleryGrid"
+                class="gallery-grid">
+
+        </div>
     </div>
-
 </section>
 
 <!-- =====================================================
@@ -190,66 +183,6 @@ GALERÍA
     </div>
 
 </footer>
-
-<!-- =====================================================
-     MODAL
-====================================================== -->
-
-<div
-        id="uploadModal"
-        class="modal hidden">
-
-    <div class="modal-card">
-
-        <button
-                id="closeModal"
-                class="close-button">
-
-            ×
-
-        </button>
-
-        <h2>
-
-            Comparte tus recuerdos
-
-        </h2>
-
-        <p>
-
-            Podrás subir fotografías y videos de la celebración.
-
-        </p>
-
-        <ul>
-
-            <li>📷 Puedes seleccionar varias fotografías.</li>
-
-            <li>🎥 También puedes compartir videos.</li>
-
-            <li>✨ Conserva la calidad original.</li>
-
-            <li>💜 Gracias por ayudarnos a recordar esta noche.</li>
-
-        </ul>
-
-        <button
-                id="continueButton"
-                class="btn btn-primary">
-
-            Continuar
-
-        </button>
-
-        <small>
-
-            Se abrirá una nueva pestaña con el formulario.
-
-        </small>
-
-    </div>
-
-</div>
 
 <!--======================================================
 LIGHTBOX
