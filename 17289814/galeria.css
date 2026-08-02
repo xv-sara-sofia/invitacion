@@ -61,11 +61,11 @@
     Transiciones
     ==================================*/
 
-    --transition-fast:var(--transition);
+    --transition-fast:.20s ease;
 
-    --transition:var(--transition);
+    --transition:.30s ease;
 
-    --transition-slow:var(--transition);
+    --transition-slow:.45s ease;
 
     /*==================================
     Layout
@@ -748,27 +748,29 @@ RESPONSIVE
 
 }
 
-@media (max-width:768px){
+@media(max-width:768px){
 
     .gallery-grid{
 
         grid-template-columns:
-            repeat(3,1fr);
 
-        gap:10px;
+            repeat(4,1fr);
+
+        gap:8px;
 
     }
 
 }
 
-@media (max-width:480px){
+@media(max-width:480px){
 
     .gallery-grid{
 
         grid-template-columns:
-            repeat(3,1fr);
 
-        gap:8px;
+            repeat(4,1fr);
+
+        gap:6px;
 
     }
 
@@ -914,7 +916,7 @@ ICONO
 
 .gallery-card::before{
 
-    content:"🔍";
+    content:"＋";
 
     position:absolute;
 
@@ -960,17 +962,33 @@ LIGHTBOX
 
     inset:0;
 
-    background:rgba(0,0,0,.92);
-
     display:flex;
 
     justify-content:center;
 
     align-items:center;
 
+    background:rgba(0,0,0,.92);
+
     z-index:9999;
 
-    animation:fadeIn .35s;
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:
+
+            opacity var(--transition),
+
+            visibility var(--transition);
+
+}
+
+.lightbox.visible{
+
+    opacity:1;
+
+    visibility:visible;
 
 }
 
@@ -1059,6 +1077,25 @@ LIGHTBOX MEDIA
     border-radius:var(--radius-md);
 
     object-fit:contain;
+
+    transform:scale(.96);
+
+    opacity:0;
+
+    transition:
+
+            transform var(--transition),
+
+            opacity var(--transition);
+
+}
+
+.lightbox.visible .lightbox-media img,
+.lightbox.visible .lightbox-media video{
+
+    transform:scale(1);
+
+    opacity:1;
 
 }
 
