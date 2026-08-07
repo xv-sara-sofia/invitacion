@@ -836,17 +836,21 @@ Crear tarjeta
 
         else if(item.type==="video"){
 
-            const video=document.createElement("video");
+            const iframe = document.createElement("iframe");
 
-            video.src=item.image;
+            iframe.src = item.image;
 
-            video.controls=true;
+            iframe.width = "100%";
 
-            video.autoplay=true;
+            iframe.height = "100%";
 
-            video.playsInline=true;
+            iframe.allow = "autoplay; fullscreen";
 
-            this.lightboxMedia.appendChild(video);
+            iframe.allowFullscreen = true;
+
+            iframe.style.border = "0";
+
+            this.lightboxMedia.appendChild(iframe);
 
         }
 

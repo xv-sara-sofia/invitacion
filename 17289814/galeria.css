@@ -952,15 +952,29 @@ LIGHTBOX
 
     position:absolute;
 
-    top:25px;
+    top:22px;
 
-    right:30px;
+    right:22px;
 
-    color:var(--color-surface);
+    width:48px;
 
-    font-size:42px;
+    height:48px;
 
-    cursor:pointer;
+    border-radius:50%;
+
+    background:rgba(0,0,0,.45);
+
+    color:white;
+
+    font-size:30px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    backdrop-filter:blur(8px);
 
 }
 
@@ -972,25 +986,49 @@ LIGHTBOX
 
     transform:translateY(-50%);
 
-    color:var(--color-surface);
+    width:58px;
 
-    font-size:52px;
-
-    width:65px;
-
-    height:65px;
+    height:58px;
 
     border-radius:50%;
 
-    background:rgba(255,255,255,.10);
+    display:flex;
 
-    transition:var(--transition);
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:34px;
+
+    color:white;
+
+    background:rgba(0,0,0,.45);
+
+    backdrop-filter:blur(8px);
+
+    transition:.25s;
 
 }
 
 .lightbox-arrow:hover{
 
-    background:rgba(255,255,255,.22);
+    background:rgba(0,0,0,.65);
+
+}
+
+.lightbox-content{
+
+    width:min(94vw,1200px);
+
+    height:min(92vh,900px);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
 
 }
 
@@ -1000,6 +1038,8 @@ LIGHTBOX MEDIA
 
 .lightbox-media{
 
+    flex:1;
+
     width:100%;
 
     display:flex;
@@ -1008,29 +1048,23 @@ LIGHTBOX MEDIA
 
     align-items:center;
 
+    overflow:hidden;
+
 }
 
 .lightbox-media img,
+.lightbox-media video,
+.lightbox-media iframe{
 
-.lightbox-media video{
+    width:100%;
 
-    max-width:100%;
-
-    max-height:75vh;
-
-    border-radius:var(--radius-md);
+    height:100%;
 
     object-fit:contain;
 
-    transform:scale(.96);
+    border-radius:18px;
 
-    opacity:0;
-
-    transition:
-
-            transform var(--transition),
-
-            opacity var(--transition);
+    background:black;
 
 }
 
@@ -1043,15 +1077,67 @@ LIGHTBOX MEDIA
 
 }
 
+.lightbox-info{
+
+    width:100%;
+
+    margin-top:22px;
+
+    padding:18px 22px;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(12px);
+
+    text-align:center;
+
+}
+
+.lightbox-info h3{
+
+    color:white;
+
+    font-size:1.15rem;
+
+    margin-bottom:8px;
+
+}
+
+.lightbox-info p{
+
+    color:rgba(255,255,255,.75);
+
+    margin-bottom:12px;
+
+}
+
+#photoCounter{
+
+    display:inline-block;
+
+    padding:8px 16px;
+
+    border-radius:999px;
+
+    background:rgba(255,255,255,.12);
+
+    color:white;
+
+    font-size:.9rem;
+
+}
+
 .left{
 
-    left:25px;
+    left:24px;
 
 }
 
 .right{
 
-    right:25px;
+    right:24px;
 
 }
 
