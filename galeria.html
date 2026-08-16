@@ -1,242 +1,137 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Momentos que perduran | Los 15 de Sara Sofía"/>
+    <meta property="og:description"
+          content="Cada instante conserva un momento único de una noche que siempre recordaremos.
+          Comparte las fotografías y videos de los 15 de Sara Sofía"/>
+    <meta property="og:image" content="https://xv-sara-sofia.github.io/invitacion/87153632/recuerdos_inicial.jpg"/>
+    <meta property="og:url" content="https://xv-sara-sofia.github.io/invitacion/galeria.html"/>
+    <meta property="og:type" content="website"/>
+    <meta name="theme-color" content="#C8A35D">
     <title>Biblioteca de Recuerdos | XV Sara Sofía</title>
-
-    <meta
-            name="theme-color"
-            content="#C8A35D">
-
-    <meta
-            name="description"
-            content="Comparte las fotografías y videos de los XV de Sara Sofía.">
-
-    <link
-            rel="icon"
-            href="favicon.ico">
-
-    <!-- Google Fonts -->
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&display=swap"
           rel="stylesheet">
-
-    <link
-            rel="stylesheet"
-            href="17289814/galeria.css">
-
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="17289814/galeria.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico">
 </head>
-
 <body>
-
 <!--==========================================================
 HEADER
 ===========================================================-->
-
 <header class="gallery-header">
     <div class="gallery-header-content">
         <div class="container">
-
             <!-- Icono -->
-
-            <div class="gallery-icon">
-
-                📸
-
-            </div>
-
+            <div class="gallery-icon">📸</div>
             <!-- Título -->
-
-            <h1>
-
-                Biblioteca de Recuerdos
-
-            </h1>
-
+            <h1> Momentos que perduran </h1>
             <!-- Descripción -->
-
             <p class="gallery-description">
-
                 Cada fotografía y cada video conservan un instante único de una noche
                 que siempre recordaremos. Ahora también puedes ser parte de
                 esta historia compartiendo tus propios recuerdos para que todos
                 podamos revivir este momento especial.
                 Gracias por ayudarnos a conservarlos. 💜
-
             </p>
-
             <!-- Acción principal -->
-
             <div class="gallery-actions">
-
-                <button
-
-                        id="btnUpload"
-
-                        class="btn btn-primary">
-
+                <button id="btnUpload" class="btn btn-primary">
                     📷 Compartir mis recuerdos
-
                 </button>
-
             </div>
-
-
             <!-- Estadísticas -->
-
-                <div
-                        id="galleryStats"
-                        class="gallery-stats">
-
-                    Cargando recuerdos...
-
-                </div>
-
-                <div
-                        id="galleryUpdate"
-                        class="gallery-update">
-
-                </div>
-
+            <div id="galleryStats" class="gallery-stats">
+                Cargando recuerdos...
+            </div>
+            <div
+                    id="galleryUpdate"
+                    class="gallery-update">
+            </div>
         </div>
     </div>
 </header>
 <!--==========================================================
 GALERÍA
 ===========================================================-->
-
 <section class="gallery-content">
-
-
     <div class="container">
-
         <div class="gallery-heading">
-
             <h2>
-
                 Últimos recuerdos compartidos
-
             </h2>
-
             <p>
-
                 Explora las fotografías y videos compartidos por familiares y amigos.
-
             </p>
-
         </div>
-
         <div
                 id="galleryGrid"
                 class="gallery-grid">
-
         </div>
     </div>
 </section>
-
 <!-- =====================================================
      FOOTER
 ====================================================== -->
-
 <footer class="gallery-footer">
-
     <div class="container">
-
         <h3>
-
             Gracias por acompañarnos
-
         </h3>
-
         <p>
-
             Cada fotografía compartida ayudará a conservar
             este hermoso recuerdo por muchos años.
-
         </p>
-
         <span>
-
             Con cariño,
-
             <strong>
-
                 Sara Sofía
-
             </strong>
-
             💜
-
         </span>
-
     </div>
-
 </footer>
-
 <!--======================================================
 LIGHTBOX
 =======================================================-->
-
 <div id="lightbox" class="lightbox hidden">
-
     <button
             id="closeLightbox"
             class="lightbox-close">
-
         ×
-
     </button>
-
     <button
             id="prevPhoto"
             class="lightbox-arrow left">
-
         ❮
-
     </button>
-
     <div class="lightbox-content">
-
         <div
                 id="lightboxMedia"
                 class="lightbox-media">
         </div>
-
         <div class="lightbox-info">
-
             <h3 id="photoAuthor"></h3>
-
             <p id="photoDate"></p>
-
             <span id="photoCounter"></span>
-
         </div>
-
     </div>
-
     <button
             id="nextPhoto"
             class="lightbox-arrow right">
-
         ❯
-
     </button>
-
 </div>
-
 <script src="17289814/galeria.js"></script>
-
 </body>
-
 </html>
