@@ -594,7 +594,7 @@ LIGHTBOX
 
 .lightbox-arrow {
     position: fixed;
-    top: 80%;
+    top: 90%;
     transform: translateY(-50%);
     width: 58px;
     height: 58px;
@@ -685,11 +685,11 @@ LIGHTBOX MEDIA
 }
 
 .lightbox-arrow.left {
-    left: 24px;
+    left: 20px;
 }
 
 .lightbox-arrow.right {
-    right: 24px;
+    right: 20px;
 }
 
 /*==========================================================
@@ -698,11 +698,11 @@ TOAST
 #toast {
     position: fixed;
     left: 50%;
-    bottom: 30px;
+    top: 30px;
     transform: translateX(-50%) translateY(120px);
     background: var(--color-surface);
     color: var(--color-text);
-    padding: 14px 26px;
+    padding: 5px;
     border-radius: var(--radius-pill);
     box-shadow: var(--shadow-lg);
     z-index: 99999;
@@ -995,4 +995,38 @@ HEADER
 
 .gallery-footer span {
     font-size: 1.05rem;
+}
+
+/* ==========================================================
+   VISUALIZAR EN GOOGLE DRIVE
+========================================================== */
+.drive-view-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 14px;
+    padding: 9px 18px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .10);
+    border: 1px solid rgba(255, 255, 255, .25);
+    color: #ffffff;
+    font-family: var(--font-body);
+    font-size: .85rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background .25s ease, transform .25s ease;
+}
+
+.drive-view-button:hover {
+
+    background: rgba(255, 255, 255, .20);
+
+    transform: translateY(-1px);
+
+}
+
+.drive-view-button:active {
+
+    transform: scale(.97);
+
 }

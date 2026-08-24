@@ -80,10 +80,6 @@ class GalleryApp {
     Cache DOM
     ==================================*/
     cacheDOM() {
-        this.photoAuthor =
-            document.getElementById("photoAuthor");
-        this.photoDate =
-            document.getElementById("photoDate");
         this.photoCounter =
             document.getElementById("photoCounter");
         this.btnUpload =
@@ -233,7 +229,7 @@ class GalleryApp {
             return;
         }
         this.showToast(
-            "✨ Actualizando la galería..."
+            "✨ Actualizando..."
         );
         setTimeout(() => {
             this.loadGallery();
@@ -367,7 +363,7 @@ class GalleryApp {
         card.innerHTML = `
             <div class="card-loader"></div>
                <img
-                data-src="${item.thumbnail}"
+                data-src="${item.thumbnail}&sz=w600"
                 alt="${item.name}"
                 class="gallery-image"
             >
@@ -430,10 +426,32 @@ class GalleryApp {
     updateLightbox() {
         const item = this.images[this.currentIndex];
         this.renderViewer(item);
-        this.photoAuthor.textContent =
-            item.name;
-        this.photoDate.textContent =
-            this.formatDate(item.updated);
+        /*======================================================
+          Botón Google Drive
+        ======================================================*/
+        let driveButton =
+            document.getElementById("driveViewButton");
+        if (!driveButton) {
+            driveButton =
+                document.createElement("a");
+            driveButton.id =
+                "driveViewButton";
+            driveButton.className =
+                "drive-view-button";
+            driveButton.target =
+                "_blank";
+            driveButton.rel =
+                "noopener noreferrer";
+            driveButton.textContent =
+                "↗ Ampliar";
+            this.photoCounter
+                .parentElement
+                .appendChild(driveButton);
+        }
+        driveButton.href = item.image;
+        /*======================================================
+          Contador
+        ======================================================*/
         this.photoCounter.textContent =
             `${this.currentIndex + 1} / ${this.images.length}`;
         this.preloadAdjacentImages();
@@ -460,7 +478,7 @@ class GalleryApp {
         this.lightboxMedia.innerHTML = "";
         if (item.type === "image") {
             const image = document.createElement("img");
-            image.src = item.image;
+            image.src = item.thumbnail + '&sz=w1600';
             image.alt = item.name;
             image.loading = "eager";
             this.lightboxMedia.appendChild(image);
