@@ -594,7 +594,7 @@ LIGHTBOX
 
 .lightbox-arrow {
     position: fixed;
-    top: 50%;
+    top: 80%;
     transform: translateY(-50%);
     width: 58px;
     height: 58px;

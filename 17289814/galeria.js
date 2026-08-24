@@ -467,6 +467,7 @@ class GalleryApp {
         } else if (item.type === "video") {
             const iframe = document.createElement("iframe");
             iframe.src = item.image;
+            iframe.title = item.name;
             iframe.width = "100%";
             iframe.height = "100%";
             iframe.allow = "autoplay; fullscreen";
